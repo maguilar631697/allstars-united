@@ -831,13 +831,13 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 // Venmo
 const VU='Quinn-Bencivenga';
 function vUrl(a,n){
-  return`https://account.venmo.com/pay?recipients=${VU}&amount=${a}&note=${encodeURIComponent(n)}`;
+  return`https://venmo.com/u/${VU}?txn=pay&amount=${a}&note=${encodeURIComponent(n)}`;
 }
 function openVenmo(e,a,n){
   e.preventDefault();
   const enc=encodeURIComponent(n);
   const appUrl='venmo://paycharge?txn=pay&recipients='+VU+'&amount='+a+'&note='+enc;
-  const webUrl='https://account.venmo.com/pay?recipients='+VU+'&amount='+a+'&note='+enc;
+  const webUrl='https://venmo.com/u/'+VU+'?txn=pay&amount='+a+'&note='+enc;
   // Try app first, fall back to web after timeout
   // Mobile: try app first, fallback to web. Desktop: new tab.
   const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
